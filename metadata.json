@@ -1,0 +1,5 @@
+{
+  "name": "Bipartite Dispatch Simulator",
+  "description": "A web application to simulate and visualize a ride-sharing dispatch flow using bipartite graph matching and proximity algorithms, with an AI-powered cost matrix generation via the Gemini API.",
+  "requestFramePermissions": []
+}
