@@ -4,7 +4,18 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    const repository = env.GITHUB_REPOSITORY ?? '';
+    let base = env.VITE_BASE ?? '/';
+
+    if (!env.VITE_BASE && repository) {
+        const [owner, repo] = repository.split('/');
+        if (repo && repo !== `${owner}.github.io`) {
+            base = `/${repo}/`;
+        }
+    }
+
     return {
+      base,
       server: {
         port: 3000,
         host: '0.0.0.0',
